@@ -16,4 +16,5 @@ export default defineConfig({
     // You can explicitly set the port here to avoid conflicts with other running applications.
     port: 3005,
   },
+  base: './',
 });
