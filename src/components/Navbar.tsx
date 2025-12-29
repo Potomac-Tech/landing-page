@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
                                 ? "NEXUS"
                                 : location.pathname === "/team"
                                 ? "TEAM"
-                                : "COMMAND"}
+                                : ""}
                         </span>
                     </h1>
                 </div>

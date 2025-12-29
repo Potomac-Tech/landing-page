@@ -4,7 +4,7 @@ const Team: React.FC = () => {
     return (
         <>
             {/* HERO SECTION */}
-            <div className="pt-32 pb-16 px-8 relative bg-potomac-primary">
+            <div className="pt-32 pb-6 px-8 relative bg-potomac-primary">
                 <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
                 <div className="relative z-10 text-center space-y-6 max-w-5xl mx-auto">
                     <h2 className="text-5xl md:text-6xl font-serif text-white tracking-widest text-glow leading-tight">
@@ -18,8 +18,8 @@ const Team: React.FC = () => {
             </div>
 
             {/* MAIN CONTENT */}
-            <main className="flex-1 px-8 py-12 relative z-10 bg-potomac-secondary">
-                <div className="max-w-7xl mx-auto space-y-20">
+            <main className="flex-1 px-8 py-2 relative z-10 bg-potomac-secondary">
+                <div className="max-w-7xl mx-auto space-y-2">
                     {/* Leadership Header */}
                     <div className="flex items-center gap-4 mb-8">
                         <div className="h-px bg-potomac-gold/30 flex-1"></div>
@@ -68,7 +68,7 @@ const Team: React.FC = () => {
                                 Cole Duffner
                             </h4>
                             <p className="text-potomac-gold text-sm font-bold uppercase tracking-widest mb-4">
-                                Co-Founder & Nexus Lead Engineer
+                                Technical Co-Founder
                             </p>
                             <p className="text-gray-400 text-sm leading-relaxed">
                                 The architect behind the Nexus platform. Cole
