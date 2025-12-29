@@ -17,7 +17,7 @@ const Home: React.FC = () => {
                         </span>
                     </h2>
                     <p className="text-xl text-gray-300 font-light max-w-3xl mx-auto uppercase tracking-widest border-t border-b border-white/10 py-2 inline-block">
-                        The Lunar Data Company.
+                        The Lunar Data Company
                     </p>
                 </div>
             </div>
