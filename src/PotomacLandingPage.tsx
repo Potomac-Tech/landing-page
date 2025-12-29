@@ -1,6 +1,7 @@
 import React, { useState, FC } from "react";
 import { createTheme, ThemeProvider, Box, Typography, Button, TextField, Paper, CssBaseline } from '@mui/material';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import potomacLogo from './assets/PotomacLogo.png';
 
 // Define the custom theme based on the Potomac style guide
 const potomacTheme = createTheme({
@@ -84,19 +85,19 @@ const App: FC = () => {
   return (
     <ThemeProvider theme={potomacTheme}>
       <CssBaseline />
-      <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', p: 4, color: 'text.primary' }}>
+      <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', color: 'text.primary' }}>
         {/* Header */}
-        <Box sx={{ width: '100%', maxWidth: 'md', display: 'flex', justifyContent: 'center', py: 3 }}>
+        <Box sx={{ width: '100%', maxWidth: 'md', display: 'flex', justifyContent: 'center' }}>
           <Box
             component="img"
-            src="https://placehold.co/100x40/D4AF37/2D3038?text=Potomac"
+            src={potomacLogo}
             alt="Potomac Logo"
-            sx={{ height: '40px', width: 'auto', borderRadius: '8px' }}
+            sx={{ height: '150px', width: 'auto', borderRadius: '8px' }}
           />
         </Box>
 
         {/* Main card */}
-        <Box sx={{ maxWidth: 'sm', width: '100%', mt: 4 }}>
+        <Box sx={{ maxWidth: 'sm', width: '100%' }}>
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h1" sx={{ fontSize: { xs: '1.75rem', md: '2.5rem' }, mb: 2 }}>
               Learn more about Potomac
