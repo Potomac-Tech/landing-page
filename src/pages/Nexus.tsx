@@ -6,7 +6,7 @@ const Nexus: React.FC = () => {
 
     return (
         <>
-            <div className="pt-32 pb-10 px-8 relative bg-potomac-primary">
+            <div className="pt-32 pb-6 px-8 relative bg-potomac-primary">
                 <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
                 <div className="relative z-10 text-center space-y-6 max-w-5xl mx-auto">
                     <h2 className="text-6xl md:text-8xl font-serif text-white tracking-widest text-glow leading-tight">
@@ -23,8 +23,8 @@ const Nexus: React.FC = () => {
                 </div>
             </div>
 
-            <main className="flex-1 px-8 py-12 relative z-10 bg-potomac-secondary">
-                <div className="max-w-7xl mx-auto space-y-20">
+            <main className="flex-1 px-8 py-2 relative z-10 bg-potomac-secondary">
+                <div className="max-w-7xl mx-auto space-y-2">
                     <div className="flex items-center gap-4 mb-8">
                         <div className="h-px bg-potomac-gold/30 flex-1"></div>
                         <h3 className="text-2xl font-serif text-potomac-cream tracking-widest">

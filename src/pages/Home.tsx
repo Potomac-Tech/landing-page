@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     return (
         <>
             {/* HERO SECTION */}
-            <div className="pt-32 pb-20 px-8 relative">
+            <div className="pt-32 pb-6 px-8 relative">
                 <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
                 <div className="max-w-6xl mx-auto text-center space-y-6">
                     <h2 className="text-5xl md:text-6xl font-serif text-white tracking-widest text-glow leading-tight">
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
                                 resource utilization and persistent human
                                 habitation, but no one is focused on making the
                                 data affordable. Until now - Potomac is a
-                                dedicated Lunar Data company.
+                                dedicated <strong>lunar data company</strong>.
                             </p>
                         </div>
                     </div>
