@@ -6,13 +6,13 @@ const Nexus: React.FC = () => {
 
     return (
         <>
-            <div className="pt-32 pb-6 px-8 relative bg-potomac-primary">
+            <div className="pt-32 pb-6 px-4 md:px-8 relative bg-potomac-primary">
                 <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
                 <div className="relative z-10 text-center space-y-6 max-w-5xl mx-auto">
-                    <h2 className="text-6xl md:text-8xl font-serif text-white tracking-widest text-glow leading-tight">
+                    <h2 className="text-5xl sm:text-6xl md:text-8xl font-serif text-white tracking-widest text-glow leading-tight">
                         NEXUS
                     </h2>
-                    <p className="text-2xl text-potomac-gold font-light tracking-[0.3em] uppercase">
+                    <p className="text-lg sm:text-2xl text-potomac-gold font-light tracking-[0.3em] uppercase">
                         The Lunar Data Command Center
                     </p>
                     <p className="text-lg text-gray-300 max-w-2xl mx-auto pt-4 leading-relaxed border-t border-white/10">
@@ -23,11 +23,11 @@ const Nexus: React.FC = () => {
                 </div>
             </div>
 
-            <main className="flex-1 px-8 py-2 relative z-10 bg-potomac-secondary">
+            <main className="flex-1 px-4 md:px-8 py-2 relative z-10 bg-potomac-secondary">
                 <div className="max-w-7xl mx-auto space-y-2">
                     <div className="flex items-center gap-4 mb-8">
                         <div className="h-px bg-potomac-gold/30 flex-1"></div>
-                        <h3 className="text-2xl font-serif text-potomac-cream tracking-widest">
+                        <h3 className="text-xl md:text-2xl font-serif text-potomac-cream tracking-widest">
                             PLATFORM CAPABILITIES
                         </h3>
                         <div className="h-px bg-potomac-gold/30 flex-1"></div>
@@ -37,6 +37,8 @@ const Nexus: React.FC = () => {
                         <img
                             src="/Nexus Screenshot.png"
                             alt="Potomac Nexus Interface"
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-auto object-cover transition transform duration-700 group-hover:scale-[1.01]"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-potomac-secondary via-transparent to-transparent opacity-20"></div>

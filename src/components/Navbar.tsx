@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Menu Links */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-4">
                 <Link to="/nexus" className={getLinkClass("/nexus")}>
                     Nexus
                 </Link>

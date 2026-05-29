@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const MobileNav: React.FC = () => {
+const FOCUSABLE_SELECTOR =
+    'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+const MobileNavBar: React.FC = () => {
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+    const drawerRef = useRef<HTMLElement>(null);
+    const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
         setIsOpen(false);
@@ -23,6 +28,53 @@ const MobileNav: React.FC = () => {
             window.scrollTo(0, scrollY);
         };
     }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
+            previouslyFocusedRef.current =
+                document.activeElement as HTMLElement | null;
+            drawerRef.current
+                ?.querySelector<HTMLElement>(FOCUSABLE_SELECTOR)
+                ?.focus();
+        } else if (previouslyFocusedRef.current) {
+            previouslyFocusedRef.current.focus();
+            previouslyFocusedRef.current = null;
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (!isOpen) return;
+        const handler = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setIsOpen(false);
+        };
+        document.addEventListener("keydown", handler);
+        return () => document.removeEventListener("keydown", handler);
+    }, [isOpen]);
+
+    useEffect(() => {
+        const el = drawerRef.current;
+        if (!el) return;
+        if (isOpen) el.removeAttribute("inert");
+        else el.setAttribute("inert", "");
+    }, [isOpen]);
+
+    const handleTrapKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key !== "Tab" || !drawerRef.current) return;
+        const focusables = Array.from(
+            drawerRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && active === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && active === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    };
 
     const getDrawerLinkClass = (path: string) => {
         const isActive = location.pathname === path;
@@ -72,6 +124,8 @@ const MobileNav: React.FC = () => {
 
             {/* Drawer */}
             <aside
+                ref={drawerRef}
+                onKeyDown={handleTrapKeyDown}
                 aria-hidden={!isOpen}
                 className={`md:hidden fixed top-0 right-0 h-full w-72 bg-potomac-primary border-l border-potomac-gold/30 z-50 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${
                     isOpen ? "translate-x-0" : "translate-x-full"
@@ -132,4 +186,4 @@ const MobileNav: React.FC = () => {
     );
 };
 
-export default MobileNav;
+export default MobileNavBar;
