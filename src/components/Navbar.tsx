@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import MobileNavBar from "./mobile/MobileNavBar";
 
 const Navbar: React.FC = () => {
     const location = useLocation();
@@ -14,11 +15,10 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className="fixed top-0 left-0 w-full h-20 bg-potomac-primary border-b border-potomac-gold/30 z-50 flex items-center justify-between px-8 shadow-xl">
+        <nav className="fixed top-0 left-0 w-full h-20 bg-potomac-primary border-b border-potomac-gold/30 z-50 flex items-center justify-between px-4 md:px-8 shadow-xl">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-4 cursor-pointer">
                 <div className="bg-potomac-primary p-1 rounded-full">
-                    {/* Ensure 'Potomac Logo.png' is in your public folder */}
                     <img
                         src="/Potomac Logo.png"
                         alt="Potomac Swan"
@@ -43,8 +43,8 @@ const Navbar: React.FC = () => {
                 </div>
             </Link>
 
-            {/* Menu Links */}
-            <div className="flex items-center gap-8">
+            {/* Desktop Menu Links */}
+            <div className="hidden md:flex items-center gap-6">
                 <Link to="/nexus" className={getLinkClass("/nexus")}>
                     Nexus
                 </Link>
@@ -67,6 +67,8 @@ const Navbar: React.FC = () => {
                     Sign in / Sign Up
                 </a>
             </div>
+
+            <MobileNavBar />
         </nav>
     );
 };
