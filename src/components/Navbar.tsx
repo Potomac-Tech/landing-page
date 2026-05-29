@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
                     />
                 </div>
                 <div className="flex flex-col justify-center">
-                    <h1 className="text-xl font-serif text-white tracking-[0.2em] leading-none">
+                    <h1 className="text-base md:text-xl font-serif text-white tracking-widest md:tracking-[0.2em] leading-none whitespace-nowrap">
                         POTOMAC{" "}
                         <span className="text-potomac-gold">
                             {location.pathname === "/source"
