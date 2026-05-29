@@ -7,13 +7,13 @@ const Source: React.FC = () => {
     return (
         <>
             {/* HERO */}
-            <div className="pt-32 pb-6 px-8 relative bg-potomac-primary">
+            <div className="pt-32 pb-6 px-4 md:px-8 relative bg-potomac-primary">
                 <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
                 <div className="relative z-10 text-center space-y-6 max-w-5xl mx-auto">
-                    <h2 className="text-6xl md:text-8xl font-serif text-white tracking-widest text-glow leading-tight">
+                    <h2 className="text-5xl sm:text-6xl md:text-8xl font-serif text-white tracking-widest text-glow leading-tight">
                         SOURCE
                     </h2>
-                    <p className="text-2xl text-potomac-gold font-light tracking-[0.3em] uppercase">
+                    <p className="text-lg sm:text-2xl text-potomac-gold font-light tracking-[0.3em] uppercase">
                         The Persistent Sensor Node
                     </p>
                     <p className="text-lg text-gray-300 max-w-2xl mx-auto pt-4 leading-relaxed border-t border-white/10">
@@ -25,20 +25,22 @@ const Source: React.FC = () => {
             </div>
 
             {/* MAIN */}
-            <main className="flex-1 px-8 py-2 relative z-10 bg-potomac-secondary">
+            <main className="flex-1 px-4 md:px-8 py-2 relative z-10 bg-potomac-secondary">
                 <div className="max-w-7xl mx-auto space-y-2">
                     <div className="flex items-center gap-4 mb-8">
                         <div className="h-px bg-potomac-gold/30 flex-1"></div>
-                        <h3 className="text-2xl font-serif text-potomac-cream tracking-widest">
+                        <h3 className="text-xl md:text-2xl font-serif text-potomac-cream tracking-widest">
                             POTOMAC SOURCE
                         </h3>
                         <div className="h-px bg-potomac-gold/30 flex-1"></div>
                     </div>
 
-                    <div className="relative w-full h-[500px] rounded-lg overflow-hidden border border-potomac-gold/20 shadow-2xl mb-16 group">
+                    <div className="relative w-full h-[300px] md:h-[500px] rounded-lg overflow-hidden border border-potomac-gold/20 shadow-2xl mb-16 group">
                         <img
                             src="/Source Rendering.png"
                             alt="Source Hardware on Lunar Surface"
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover transition transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-potomac-secondary via-transparent to-transparent opacity-60"></div>

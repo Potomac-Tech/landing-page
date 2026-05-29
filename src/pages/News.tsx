@@ -4,10 +4,10 @@ const News: React.FC = () => {
     return (
         <>
             {/* HERO SECTION */}
-            <div className="pt-32 pb-6 px-8 relative bg-potomac-primary">
+            <div className="pt-32 pb-6 px-4 md:px-8 relative bg-potomac-primary">
                 <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
                 <div className="relative z-10 text-center space-y-6 max-w-5xl mx-auto">
-                    <h2 className="text-5xl md:text-6xl font-serif text-white tracking-widest text-glow leading-tight">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white tracking-widest text-glow leading-tight">
                         THE CYGNUS NEWSLETTER
                     </h2>
                     <p className="text-lg text-gray-300 max-w-3xl mx-auto pt-4 leading-relaxed border-t border-white/10">
@@ -20,7 +20,7 @@ const News: React.FC = () => {
             </div>
 
             {/* MAIN CONTENT */}
-            <main className="flex-1 px-8 py-2 relative z-10 bg-potomac-secondary">
+            <main className="flex-1 px-4 md:px-8 py-2 relative z-10 bg-potomac-secondary">
                 <div className="max-w-6xl mx-auto space-y-8">
                     {/* LATEST EDITION */}
                     <section>
@@ -42,6 +42,8 @@ const News: React.FC = () => {
                                 <img
                                     src="/News_Logo.png"
                                     alt="Cygnus Newsletter — May 2026"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="w-full h-auto object-cover group-hover:scale-105 transition duration-500"
                                 />
                             </div>

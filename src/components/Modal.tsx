@@ -91,13 +91,14 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, context }) => {
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm transition-opacity duration-300">
             <div
-                className={`glass-card w-full max-w-md p-10 rounded-lg relative transform transition-transform duration-300 ${
+                className={`glass-card w-full max-w-md p-6 md:p-10 rounded-lg relative transform transition-transform duration-300 ${
                     isAnimating ? "scale-100" : "scale-95"
                 }`}
             >
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-gray-500 hover:text-white"
+                    aria-label="Close"
+                    className="absolute top-1 right-1 p-3 text-gray-500 hover:text-white"
                 >
                     <svg
                         className="w-6 h-6"
@@ -143,7 +144,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, context }) => {
                             name="email"
                             required
                             placeholder="name@organization.com"
-                            className="w-full bg-black/40 border border-white/20 rounded p-3 text-white placeholder-gray-600 focus:border-potomac-gold focus:outline-none transition"
+                            className="w-full bg-black/40 border border-white/20 rounded p-3 text-base text-white placeholder-gray-600 focus:border-potomac-gold focus:outline-none transition"
                         />
                     </div>
 

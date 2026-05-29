@@ -1,16 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
-    const navigate = useNavigate();
-
     return (
         <>
             {/* HERO SECTION */}
-            <div className="pt-32 pb-6 px-8 relative">
+            <div className="pt-32 pb-6 px-4 md:px-8 relative">
                 <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
                 <div className="max-w-6xl mx-auto text-center space-y-6">
-                    <h2 className="text-5xl md:text-6xl font-serif text-white tracking-widest text-glow leading-tight">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white tracking-widest text-glow leading-tight">
                         POTOMAC{" "}
                         <span className="text-potomac-gold italic">
                             DATABASE SYSTEMS
@@ -23,10 +21,10 @@ const Home: React.FC = () => {
             </div>
 
             {/* MAIN CONTENT (Grid Layout) */}
-            <main className="flex-1 px-8 pb-20 relative z-10">
+            <main className="px-4 md:px-8 pb-8 relative z-10">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* 1. PROBLEM (Full Width) */}
-                    <div className="glass-card p-10 rounded-lg md:col-span-2 relative overflow-hidden group">
+                    <div className="glass-card p-6 md:p-10 rounded-lg md:col-span-2 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition">
                             <svg
                                 className="w-32 h-32 text-potomac-gold"
@@ -75,21 +73,23 @@ const Home: React.FC = () => {
                     {/* <div className="md:col-span-2 w-full rounded-lg overflow-hidden border border-potomac-gold/20 shadow-2xl relative group"> ... </div> */}
 
                     {/* 2. SOURCE */}
-                    <div
+                    <Link
+                        to="/source"
                         className="glass-card p-0 rounded-lg flex flex-col relative group overflow-hidden cursor-pointer"
-                        onClick={() => navigate("/source")}
                     >
                         {/* Image Background */}
                         <div className="absolute inset-0 z-0">
                             <img
                                 src="/Source Rendering.png"
                                 alt="Source Hardware"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-potomac-secondary via-potomac-secondary/80 to-transparent"></div>
                         </div>
 
-                        <div className="p-10 relative z-10 flex flex-col h-full">
+                        <div className="p-6 md:p-10 relative z-10 flex flex-col h-full">
                             <div className="absolute top-6 right-6 p-2 bg-potomac-gold/10 rounded-full">
                                 <svg
                                     className="w-6 h-6 text-potomac-gold"
@@ -119,24 +119,26 @@ const Home: React.FC = () => {
                                 View Hardware Specs
                             </span>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* 3. NEXUS */}
-                    <div
+                    <Link
+                        to="/nexus"
                         className="glass-card p-0 rounded-lg flex flex-col relative group overflow-hidden cursor-pointer"
-                        onClick={() => navigate("/nexus")}
                     >
                         {/* Image Background */}
                         <div className="absolute inset-0 z-0">
                             <img
                                 src="/Nexus Screenshot.png"
                                 alt="Nexus Platform Interface"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-potomac-secondary via-potomac-secondary/80 to-transparent"></div>
                         </div>
 
-                        <div className="p-10 relative z-10 flex flex-col h-full">
+                        <div className="p-6 md:p-10 relative z-10 flex flex-col h-full">
                             <div className="absolute top-6 right-6 p-2 bg-potomac-gold/10 rounded-full">
                                 <svg
                                     className="w-6 h-6 text-potomac-gold"
@@ -164,10 +166,10 @@ const Home: React.FC = () => {
                                 See more Nexus
                             </span>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* 4. IMPACT (Full Width) */}
-                    <div className="glass-card p-10 rounded-lg md:col-span-2 bg-gradient-to-r from-potomac-gold/5 to-transparent border-potomac-gold/20">
+                    <div className="glass-card p-6 md:p-10 rounded-lg md:col-span-2 bg-gradient-to-r from-potomac-gold/5 to-transparent border-potomac-gold/20">
                         <h3 className="text-2xl font-serif text-potomac-gold tracking-widest mb-4">
                             IMPACT
                         </h3>
