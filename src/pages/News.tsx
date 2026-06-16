@@ -25,7 +25,7 @@ const announcements = [
         title: "Potomac advances low-cost data infrastructure for the lunar economy",
         summary:
             "Potomac announced its roadmap for the lunar data layer, including Compass, Pathfinder, Source, Nexus, and the RHU provider RFI.",
-        href: "/potomac-lunar-economy-press-release-05182026.pdf",
+        href: "/05182026 Potomac Database Systems Advances Low-Cost Data Infrastructure for the Lunar Economy.pdf",
         cta: "View press release",
     },
 ];
