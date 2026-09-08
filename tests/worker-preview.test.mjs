@@ -6,7 +6,7 @@ import {
   previewResponse,
 } from '../lib/worker-preview.ts';
 
-test('standalone requests discard forged Sites identity and preserve form bodies', async () => {
+await test('standalone requests discard forged Sites identity and preserve form bodies', async () => {
   const request = previewRequest(
     new Request('https://preview.example/api/inquiries', {
       method: 'POST',
@@ -25,7 +25,7 @@ test('standalone requests discard forged Sites identity and preserve form bodies
   assert.equal(await request.text(), '{"test":true}');
 });
 
-test('private routes, encoded equivalents, and their children are blocked', () => {
+await test('private routes, encoded equivalents, and their children are blocked', () => {
   for (const path of [
     '/inquiries',
     '/inquiries/',
@@ -43,7 +43,7 @@ test('private routes, encoded equivalents, and their children are blocked', () =
   }
 });
 
-test('preview responses preserve content and status while preventing indexing', async () => {
+await test('preview responses preserve content and status while preventing indexing', async () => {
   const result = previewResponse(
     Response.json({ reference: 'test' }, { status: 201 }),
   );
