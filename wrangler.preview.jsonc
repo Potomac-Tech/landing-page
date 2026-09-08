@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "potomac-lunar-preview-20260908",
+  "account_id": "2491244ab83d2260e4b5226bcb79967a",
+  "main": "./worker.preview.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [],
+  "assets": { "binding": "ASSETS", "run_worker_first": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "potomac-lunar-preview-20260908",
+      "database_id": "1ad99768-d11f-4475-baa8-56ed0058ca12",
+      "migrations_dir": "./drizzle",
+    },
+  ],
+  "observability": { "enabled": true },
+}
