@@ -6,6 +6,32 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
+export function BriefingIntro() {
+  return (
+    <div className="briefing-intro">
+      <p className="eyebrow">Start a conversation</p>
+      <h2>
+        Bring your next
+        <br />
+        <em>lunar decision.</em>
+      </h2>
+      <p>
+        Tell us what you’re working on. A Potomac briefing explores the data,
+        platform tools, and intelligence relevant to your priorities.
+      </p>
+      <ul>
+        <li>Your site, market, or investment questions</li>
+        <li>The platforms and data relevant to your work</li>
+        <li>Opportunities to work with Potomac</li>
+      </ul>
+      <a className="email-alternative" href="mailto:info@potomacdb.com">
+        Prefer email? info@potomacdb.com{' '}
+        <ArrowUpRight size={17} aria-hidden="true" />
+      </a>
+    </div>
+  );
+}
+
 export function BriefingForm() {
   const [interest, setInterest] = useState('Lunar intelligence briefing');
   const [pending, setPending] = useState(false);
@@ -67,28 +93,7 @@ export function BriefingForm() {
   }
 
   return (
-    <section className="briefing-section" id="briefing">
-      <div className="briefing-intro">
-        <p className="eyebrow">Start a conversation</p>
-        <h2>
-          Bring your next
-          <br />
-          <em>lunar decision.</em>
-        </h2>
-        <p>
-          Tell us what you’re working on. A Potomac briefing explores the data,
-          platform tools, and intelligence relevant to your priorities.
-        </p>
-        <ul>
-          <li>Your site, market, or investment questions</li>
-          <li>The platforms and data relevant to your work</li>
-          <li>Opportunities to work with Potomac</li>
-        </ul>
-        <a className="email-alternative" href="mailto:info@potomacdb.com">
-          Prefer email? info@potomacdb.com{' '}
-          <ArrowUpRight size={17} aria-hidden="true" />
-        </a>
-      </div>
+    <div className="briefing-form-panel">
       {receipt ? (
         <output className="inquiry-success" ref={successRef} tabIndex={-1}>
           <Check size={30} aria-hidden="true" />
@@ -210,6 +215,6 @@ export function BriefingForm() {
           </noscript>
         </form>
       )}
-    </section>
+    </div>
   );
 }

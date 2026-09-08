@@ -4,6 +4,12 @@ These notes record the original Sites implementation, which remains unpublished 
 
 The homepage now includes product previews from the supplied Potomac Data Distribution Platform Concept deck, revised Deloitte labels, mobile navigation, a private inquiry inbox, optimized assets, and social metadata. Pathfinder immediately follows the hero, ahead of the lunar market and Intelligence Platform sections. Existing surface-collection and flight-qualification wording is unchanged.
 
+## Scrolling visual column
+
+The desktop homepage uses one persistent visual column: Pathfinder across the hero, hardware, and market copy; the selected product preview beside Intelligence Platform; the uncropped team photo beside Company; and the existing inquiry form beside Briefing. Media remains mounted when hidden so tab selection, form drafts, and receipts are preserved. Inactive media is inert and hidden from assistive technology. Keyboard focus inside the visual panel keeps that panel available until focus moves away.
+
+At widths below 1100px, heights below 720px, or without JavaScript, content and media flow inline in reading order. Reduced-motion preferences disable transitions. No database, authentication, or form-submission logic changed. The secondary Pathfinder rendering, mission-ready label, and coordinate label were removed; the caption now reads “Site intelligence / Lunar south pole.” Company heading/spacing is compact and the photo keeps its full aspect ratio.
+
 ## Pathfinder positioning
 
 The Pathfinder section now leads with “The CubeSat for the Moon”: lower-cost hardware access broadens the lunar market to universities, startups, and established customers. This is a market-access analogy, not a CubeSat form-factor claim. Specifications and the existing flight-qualification paragraph are retained.
