@@ -626,26 +626,6 @@ a {
   line-height: 1.7;
 }
 
-.pathfinder-sources {
-  max-width: 670px;
-  margin: 22px 0 0;
-  color: var(--fog);
-  font-size: 0.8125rem;
-  line-height: 1.7;
-}
-
-.pathfinder-sources a {
-  color: var(--moon);
-  text-decoration: underline;
-  text-decoration-color: var(--signal);
-  text-underline-offset: 3px;
-}
-
-.pathfinder-sources a:hover,
-.pathfinder-sources a:focus-visible {
-  color: var(--signal);
-}
-
 .pathfinder-heritage {
   max-width: 670px;
   margin-top: 28px;

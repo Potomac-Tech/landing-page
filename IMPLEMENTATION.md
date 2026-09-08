@@ -2,13 +2,13 @@
 
 These notes record the original Sites implementation, which remains unpublished there. This GitHub branch adds a separate Cloudflare Worker preview; see `README.md` for its isolated database, inbox restrictions, and deployment instructions.
 
-The homepage now includes product previews from the supplied Potomac Data Distribution Platform Concept deck, revised Deloitte labels, platform-first ordering, mobile navigation, a private inquiry inbox, optimized assets, and social metadata. Existing surface-collection and flight-qualification wording is unchanged.
+The homepage now includes product previews from the supplied Potomac Data Distribution Platform Concept deck, revised Deloitte labels, mobile navigation, a private inquiry inbox, optimized assets, and social metadata. Pathfinder immediately follows the hero, ahead of the lunar market and Intelligence Platform sections. Existing surface-collection and flight-qualification wording is unchanged.
 
 ## Pathfinder positioning
 
 The Pathfinder section now leads with “The CubeSat for the Moon”: lower-cost hardware access broadens the lunar market to universities, startups, and established customers. This is a market-access analogy, not a CubeSat form-factor claim. Specifications and the existing flight-qualification paragraph are retained.
 
-Historical context links to NASA's [CubeSat overview](https://science.nasa.gov/science-research/science-enabling-technology/technology-highlights/cubesat-platform-enables-inexpensive-space-telescope/). The cost comparison uses NASA's [specific $101.5 million Blue Ghost delivery award](https://www.nasa.gov/news-release/nasa-sets-coverage-of-fireflys-first-robotic-commercial-moon-landing/), explicitly identified as end-to-end delivery rather than a payload price or a universal lunar-landing minimum. No Pathfinder price is invented. This copy update remains unpublished.
+The general CubeSat comparison remains. The detailed Blue Ghost delivery-cost paragraph and NASA source note have been removed from the homepage at the user's request. No Pathfinder price is invented.
 
 ## Inquiry flow
 
