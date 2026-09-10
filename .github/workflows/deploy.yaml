@@ -17,12 +17,14 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    # A manual run from a preview branch must not replace the production site.
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

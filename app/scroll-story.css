@@ -1,0 +1,311 @@
+/* A shared visual column, with an inline mobile/no-JavaScript baseline. */
+.site-shell {
+  overflow: clip;
+}
+.masthead {
+  position: sticky;
+  top: 0;
+}
+.scroll-story {
+  --story-top: 86px;
+  --story-gutter: clamp(26px, 4vw, 72px);
+  display: block;
+  gap: 0;
+  min-width: 0;
+}
+.scroll-story > section {
+  min-width: 0;
+  scroll-margin-top: calc(var(--story-top) + 24px);
+}
+.scroll-story .hero,
+.scroll-story .pathfinder-section,
+.scroll-story .briefing-section,
+.scroll-story .company-layout,
+.scroll-story .market-intro {
+  display: block;
+  min-height: 0;
+}
+.scroll-story .hero-copy {
+  padding: 64px var(--story-gutter);
+  border-right: 0;
+}
+.scroll-story .hero-title-wrap {
+  margin: 0 0 34px;
+}
+.scroll-story .hero h1 {
+  font-size: clamp(3.1rem, 6vw, 6.6rem);
+  line-height: 0.98;
+}
+.scroll-story .pathfinder-copy,
+.scroll-story .market-section,
+.scroll-story .platform-section,
+.scroll-story .company-section,
+.scroll-story .briefing-section {
+  padding: 64px var(--story-gutter);
+  background: #000;
+}
+.scroll-story .market-copy {
+  margin-top: 30px;
+}
+.scroll-story .market-evidence {
+  margin-top: 36px;
+}
+.scroll-story .market-source {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 18px;
+}
+.scroll-story .product-selectors {
+  margin-top: 36px;
+}
+.scroll-story .product-selector {
+  min-height: 0;
+  padding: 24px 16px;
+}
+.scroll-story .selector-copy {
+  gap: 8px;
+}
+.scroll-story .preview-story {
+  padding: 30px 0 0;
+}
+.scroll-story .company-heading {
+  font-size: clamp(2.35rem, 3.2vw, 3.7rem);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+.scroll-story .company-summary {
+  margin-top: 24px;
+  font-size: 1rem;
+}
+.scroll-story .team-list {
+  margin-top: 28px;
+}
+.scroll-story .team-list article {
+  padding: 16px 0;
+}
+.scroll-story .advisors {
+  margin-top: 20px;
+  letter-spacing: 0.035em;
+}
+.story-media {
+  min-width: 0;
+  background: #000;
+}
+.story-media-pathfinder .hero-visual {
+  min-height: 0;
+  height: clamp(320px, 65vw, 700px);
+}
+.story-media-pathfinder .mission-badge {
+  top: 24px;
+  right: 24px;
+}
+.story-media-pathfinder .visual-caption {
+  justify-content: flex-start;
+  font-size: 0.75rem;
+}
+.story-media-platform,
+.story-media-team,
+.story-media-briefing {
+  padding: 0 var(--story-gutter) 48px;
+}
+.scroll-story .company-image {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  overflow: visible;
+  background: #000;
+  border: 0;
+}
+.scroll-story .company-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: contain;
+  border: 1px solid var(--graphite);
+}
+.scroll-story .company-image figcaption {
+  position: static;
+  padding: 14px 0 0;
+  border: 0;
+  background: #000;
+}
+.scroll-story .briefing-form {
+  gap: 18px;
+}
+.scroll-story .briefing-form textarea {
+  min-height: 100px;
+}
+
+@media (min-width: 1100px) and (min-height: 720px) {
+  .scroll-story[data-enhanced='true'] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: repeat(6, auto);
+    align-items: start;
+  }
+  .scroll-story[data-enhanced='true'] > section {
+    grid-column: 1;
+    border-right: 1px solid var(--graphite);
+  }
+  .scroll-story[data-enhanced='true'] > #top {
+    grid-row: 1;
+  }
+  .scroll-story[data-enhanced='true'] > #pathfinder {
+    grid-row: 2;
+  }
+  .scroll-story[data-enhanced='true'] > #market {
+    grid-row: 3;
+  }
+  .scroll-story[data-enhanced='true'] > #intelligence-platform {
+    grid-row: 4;
+  }
+  .scroll-story[data-enhanced='true'] > #company {
+    grid-row: 5;
+  }
+  .scroll-story[data-enhanced='true'] > #briefing {
+    grid-row: 6;
+  }
+  .scroll-story[data-enhanced='true'] .hero {
+    display: flex;
+    align-items: center;
+    min-height: calc(100svh - var(--story-top));
+  }
+  .scroll-story[data-enhanced='true'] .hero h1 {
+    font-size: clamp(3.2rem, 4.7vw, 5.8rem);
+  }
+  .scroll-story[data-enhanced='true'] .pathfinder-section h2,
+  .scroll-story[data-enhanced='true'] .market-section h2,
+  .scroll-story[data-enhanced='true'] .platform-section h2,
+  .scroll-story[data-enhanced='true'] .briefing-intro h2 {
+    font-size: clamp(3rem, 4.2vw, 5.1rem);
+    line-height: 1;
+  }
+  .scroll-story[data-enhanced='true'] .market-stat strong {
+    font-size: clamp(4rem, 5.8vw, 7rem);
+  }
+  .scroll-story[data-enhanced='true'] .market-stat {
+    padding-block: 28px;
+  }
+  .scroll-story[data-enhanced='true'] .market-stat > span {
+    font-size: 0.8125rem;
+    letter-spacing: 0.065em;
+  }
+  .scroll-story[data-enhanced='true'] .briefing-section {
+    min-height: calc(100svh - var(--story-top));
+  }
+  .scroll-story[data-enhanced='true'] > .story-media {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    position: sticky;
+    top: var(--story-top);
+    align-self: start;
+    z-index: 1;
+    max-height: calc(100svh - var(--story-top));
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 240ms ease;
+  }
+  .scroll-story[data-enhanced='true'] > .story-media[data-active='true'] {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+  }
+  .scroll-story[data-enhanced='true'] .story-media-pathfinder .hero-visual {
+    height: calc(100svh - var(--story-top));
+  }
+  .scroll-story[data-enhanced='true'] .hero-visual > img {
+    animation: none;
+  }
+  .scroll-story[data-enhanced='true'] .story-media-platform,
+  .scroll-story[data-enhanced='true'] .story-media-team {
+    padding: 64px 28px 28px;
+    overflow-y: auto;
+  }
+  .scroll-story[data-enhanced='true'] .story-media-briefing {
+    padding: 28px;
+    overflow-y: auto;
+  }
+  .scroll-story[data-enhanced='true'] .preview-panels,
+  .scroll-story[data-enhanced='true'] .briefing-form-panel {
+    width: 100%;
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .scroll-story[data-enhanced='true'] .briefing-form label {
+    margin-bottom: 6px;
+  }
+  .scroll-story[data-enhanced='true'] .briefing-form input {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 540px) {
+  .scroll-story {
+    --story-gutter: 22px;
+  }
+  .scroll-story .hero-copy {
+    padding-top: 44px;
+  }
+  .scroll-story .company-heading {
+    font-size: 2.35rem;
+  }
+  .scroll-story .company-section {
+    padding-bottom: 30px;
+  }
+  .scroll-story .form-pair {
+    gap: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-story[data-enhanced='true'] > .story-media {
+    transition: none;
+  }
+}
+
+/* One industrial type family, with a narrower voice for the narrative. */
+.scroll-story .hero h1,
+.scroll-story .market-section h2,
+.scroll-story .pathfinder-section h2,
+.scroll-story .platform-section h2,
+.scroll-story .company-heading,
+.scroll-story .briefing-intro h2,
+.scroll-story .preview-story h3,
+.scroll-story .market-stat strong {
+  font-family: var(--font-barlow-display), 'Arial Narrow', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+}
+.scroll-story h1 em,
+.scroll-story h2 em {
+  font-weight: 600;
+}
+.scroll-story .company-heading {
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+.scroll-story .market-stat strong,
+.spec-list dd {
+  font-variant-numeric: tabular-nums;
+}
+.primary-nav,
+.nav-cta,
+.button-primary,
+.text-link,
+.chapter-label,
+.eyebrow,
+.spec-list dt,
+.selector-index {
+  font-weight: 600;
+  letter-spacing: 0.045em;
+}
+.chapter-label,
+.eyebrow,
+.spec-list dt {
+  font-size: 0.875rem;
+}
