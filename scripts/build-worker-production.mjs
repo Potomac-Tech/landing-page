@@ -1,13 +1,23 @@
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-const result = spawnSync(process.execPath, [
-  fileURLToPath(new URL('../node_modules/vinext/dist/cli.js', import.meta.url)),
-  'build',
-], {
-  cwd: fileURLToPath(new URL('..', import.meta.url)),
-  env: { ...process.env, POTOMAC_WORKER_PRODUCTION: '1', POTOMAC_WORKER_PREVIEW: '0' },
-  stdio: 'inherit',
-});
+const result = spawnSync(
+  process.execPath,
+  [
+    fileURLToPath(
+      new URL('../node_modules/vinext/dist/cli.js', import.meta.url),
+    ),
+    'build',
+  ],
+  {
+    cwd: fileURLToPath(new URL('..', import.meta.url)),
+    env: {
+      ...process.env,
+      POTOMAC_WORKER_PRODUCTION: '1',
+      POTOMAC_WORKER_PREVIEW: '0',
+    },
+    stdio: 'inherit',
+  },
+);
 if (result.error) throw result.error;
 process.exit(result.status ?? 1);

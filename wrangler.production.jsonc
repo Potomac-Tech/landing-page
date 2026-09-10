@@ -7,15 +7,26 @@
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
   "preview_urls": false,
-  "routes": [],
+  "routes": [
+    {
+      "pattern": "potomacdb.com",
+      "custom_domain": true,
+      "zone_name": "potomacdb.com",
+    },
+    {
+      "pattern": "www.potomacdb.com",
+      "custom_domain": true,
+      "zone_name": "potomacdb.com",
+    },
+  ],
   "assets": { "binding": "ASSETS", "run_worker_first": true },
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "potomac-landing-production",
       "database_id": "22770263-a2dd-404b-b4c3-aa6b36e86757",
-      "migrations_dir": "./drizzle"
-    }
+      "migrations_dir": "./drizzle",
+    },
   ],
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
 }

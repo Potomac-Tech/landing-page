@@ -11,7 +11,11 @@ const result = spawnSync(
   ],
   {
     cwd: fileURLToPath(new URL('..', import.meta.url)),
-    env: { ...process.env, POTOMAC_WORKER_PREVIEW: '1' },
+    env: {
+      ...process.env,
+      POTOMAC_WORKER_PREVIEW: '1',
+      POTOMAC_WORKER_PRODUCTION: '0',
+    },
     stdio: 'inherit',
   },
 );
