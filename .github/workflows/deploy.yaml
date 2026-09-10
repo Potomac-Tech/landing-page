@@ -32,15 +32,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          # Temporarily serve the last known-good static site until production
+          # hosting is migrated to Cloudflare Workers. Keep the new app on main.
+          ref: 1309b080fe511ef9e09c6d4cc06c7907a5c571a8
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: '24.16.0'
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Verify static entry point
+        run: |
+          if [ ! -s dist/index.html ]; then
+            echo "::error::GitHub Pages requires dist/index.html; refusing to publish a non-static build."
+            exit 1
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
