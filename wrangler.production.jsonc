@@ -9,13 +9,11 @@
   "preview_urls": false,
   "routes": [
     {
-      "pattern": "potomacdb.com",
-      "custom_domain": true,
+      "pattern": "potomacdb.com/*",
       "zone_name": "potomacdb.com",
     },
     {
-      "pattern": "www.potomacdb.com",
-      "custom_domain": true,
+      "pattern": "www.potomacdb.com/*",
       "zone_name": "potomacdb.com",
     },
   ],
