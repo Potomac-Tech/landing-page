@@ -30,3 +30,13 @@ npm run deploy:preview
 The default `npm run dev` and `npm run build` retain the original Sites development/build path. The separate preview build omits the Sites plugin and uses `worker.preview.ts` with the same application and assets. Secrets, local environment files, build output, and local inquiry records are not committed. The original social metadata/canonical origin is retained; the preview itself is not intended for indexing.
 
 The existing GitHub Pages workflow is retained but guarded to run only on `main`, including manual dispatch. This Worker-backed app is not a static GitHub Pages export; review deployment separately before any future merge to `main`.
+
+## Priority audit updates — 10 September 2026
+
+- Typography uses Barlow for body/UI and Barlow Semi Condensed for headlines, including a real italic face for gold emphasis. Fonts remain self-hosted through the existing build integration.
+- The inquiry form renders with an explicit POST target and disabled controls until JavaScript initializes its request ID. An email fallback remains available without JavaScript. The preview check also asserts these server-rendered privacy defaults.
+- React, React DOM, and React Server DOM are pinned to 19.2.8; RSC plugin 0.5.34 includes the patched vendored 19.2.8 decoder. Vite is 8.0.16. Cloudflare tooling and its matching types are updated together.
+- The supplied Potomac logo is used unchanged for the favicon, with a versioned URL to refresh browser caches.
+- Updates are pushed and deployed manually when requested; GitHub branch pushes do not automatically publish the Worker or replace production.
+
+Remaining audit items are not silently treated as fixed: `image-size` 2.0.2 has build-time parsing advisories with no published patched release. Use trusted checked-in images only; do not add untrusted image processing. Vinext is retained at beta.5 because newer releases bundle this parser rather than fixing it. Drizzle Kit's old esbuild loader also retains a moderate development-tool advisory; do not expose its development server or accept the audit's suggested breaking downgrade. Response-header policy, edge abuse controls, retention, and CI hardening remain follow-up work.

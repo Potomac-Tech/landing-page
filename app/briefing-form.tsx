@@ -35,6 +35,7 @@ export function BriefingIntro() {
 export function BriefingForm() {
   const [interest, setInterest] = useState('Lunar intelligence briefing');
   const [pending, setPending] = useState(false);
+  const [ready, setReady] = useState(false);
   const [error, setError] = useState('');
   const [receipt, setReceipt] = useState('');
   const requestId = useRef('');
@@ -43,6 +44,8 @@ export function BriefingForm() {
 
   useEffect(() => {
     requestId.current = crypto.randomUUID();
+    // oxlint-disable-next-line react/react-compiler -- SSR must stay disabled until the client initializes its inquiry ID.
+    setReady(true);
     const chooseInterest = (event: Event) => {
       const value = (event as CustomEvent<string>).detail;
       if (value === 'Cabeus Terminal early access') setInterest(value);
@@ -58,7 +61,7 @@ export function BriefingForm() {
 
   async function submit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (pending) return;
+    if (!ready || pending || !requestId.current) return;
     const data = new FormData(event.currentTarget);
     setPending(true);
     setError('');
@@ -117,102 +120,115 @@ export function BriefingForm() {
       ) : (
         <form
           className="briefing-form"
+          method="post"
+          action="/api/inquiries"
           onSubmit={submit}
           aria-label="Request a Potomac briefing"
           aria-busy={pending}
         >
-          <div className="form-pair">
+          {/* Native POST is a privacy backstop; this JSON form unlocks only after hydration. */}
+          <fieldset
+            className="briefing-form-fields"
+            disabled={!ready || pending}
+          >
+            <legend className="sr-only">Briefing details</legend>
+            <div className="form-pair">
+              <div>
+                <Label htmlFor="inquiry-name">Name</Label>
+                <Input
+                  id="inquiry-name"
+                  name="name"
+                  autoComplete="name"
+                  required
+                  maxLength={100}
+                />
+              </div>
+              <div>
+                <Label htmlFor="inquiry-email">Email</Label>
+                <Input
+                  id="inquiry-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  maxLength={254}
+                />
+              </div>
+            </div>
             <div>
-              <Label htmlFor="inquiry-name">Name</Label>
+              <Label htmlFor="inquiry-organization">
+                Organization <span>(optional)</span>
+              </Label>
               <Input
-                id="inquiry-name"
-                name="name"
-                autoComplete="name"
-                required
-                maxLength={100}
+                id="inquiry-organization"
+                name="organization"
+                autoComplete="organization"
+                maxLength={160}
               />
             </div>
             <div>
-              <Label htmlFor="inquiry-email">Email</Label>
+              <Label htmlFor="inquiry-interest">I’m interested in</Label>
               <Input
-                id="inquiry-email"
-                name="email"
-                type="email"
-                autoComplete="email"
+                id="inquiry-interest"
+                name="interest"
+                value={interest}
+                onChange={(event) => setInterest(event.target.value)}
                 required
-                maxLength={254}
+                maxLength={160}
               />
             </div>
-          </div>
-          <div>
-            <Label htmlFor="inquiry-organization">
-              Organization <span>(optional)</span>
-            </Label>
-            <Input
-              id="inquiry-organization"
-              name="organization"
-              autoComplete="organization"
-              maxLength={160}
-            />
-          </div>
-          <div>
-            <Label htmlFor="inquiry-interest">I’m interested in</Label>
-            <Input
-              id="inquiry-interest"
-              name="interest"
-              value={interest}
-              onChange={(event) => setInterest(event.target.value)}
-              required
-              maxLength={160}
-            />
-          </div>
-          <div>
-            <Label htmlFor="inquiry-message">
-              What would you like to explore?
-            </Label>
-            <Textarea
-              id="inquiry-message"
-              name="message"
-              required
-              maxLength={2000}
-              rows={4}
-              placeholder="Tell us about your priorities or the decision you’re working toward."
-            />
-          </div>
-          <div className="form-honeypot" aria-hidden="true">
-            <label htmlFor="inquiry-website">Leave this field empty</label>
-            <input
-              id="inquiry-website"
-              name="website"
-              tabIndex={-1}
-              autoComplete="off"
-            />
-          </div>
-          <p className="form-privacy">
-            Your details are stored privately and used to respond to this
-            inquiry. Please don’t include confidential or sensitive mission
-            information.
-          </p>
-          {error && (
-            <div
-              className="form-error"
-              role="alert"
-              ref={statusRef}
-              tabIndex={-1}
-            >
-              {error}
+            <div>
+              <Label htmlFor="inquiry-message">
+                What would you like to explore?
+              </Label>
+              <Textarea
+                id="inquiry-message"
+                name="message"
+                required
+                maxLength={2000}
+                rows={4}
+                placeholder="Tell us about your priorities or the decision you’re working toward."
+              />
             </div>
-          )}
-          <button type="submit" className="button-primary" disabled={pending}>
-            {pending ? 'Submitting…' : 'Send inquiry'}{' '}
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </button>
-          <noscript>
-            <p>
-              This form needs JavaScript. You can also contact{' '}
-              <a href="mailto:info@potomacdb.com">info@potomacdb.com</a>.
+            <div className="form-honeypot" aria-hidden="true">
+              <label htmlFor="inquiry-website">Leave this field empty</label>
+              <input
+                id="inquiry-website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+            <p className="form-privacy">
+              Your details are stored privately and used to respond to this
+              inquiry. Please don’t include confidential or sensitive mission
+              information.
             </p>
-          </noscript>
+            {error && (
+              <div
+                className="form-error"
+                role="alert"
+                ref={statusRef}
+                tabIndex={-1}
+              >
+                {error}
+              </div>
+            )}
+            <button
+              type="submit"
+              className="button-primary"
+              disabled={!ready || pending}
+            >
+              {pending ? 'Submitting…' : 'Send inquiry'}{' '}
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </button>
+          </fieldset>
+          {!ready && (
+            <output className="form-privacy">
+              If this form stays unavailable, email{' '}
+              <a href="mailto:info@potomacdb.com">info@potomacdb.com</a>.
+            </output>
+          )}
         </form>
       )}
     </div>

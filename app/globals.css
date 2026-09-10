@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-cormorant);
+  --font-sans: var(--font-barlow);
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-heading: var(--font-barlow-display);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -69,7 +69,7 @@ body {
   margin: 0;
   background: var(--ink);
   color: var(--moon);
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-barlow), Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -163,7 +163,7 @@ a {
 
 .primary-nav a,
 .nav-cta {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.72rem;
   line-height: 1;
   letter-spacing: 0.12em;
@@ -250,7 +250,7 @@ a {
 .company-image figcaption,
 .advisors,
 .site-footer {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
 }
 
 .hero-kicker {
@@ -292,8 +292,9 @@ a {
 .platform-section h2,
 .company-section h2 {
   margin: 0;
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-family: var(--font-barlow-display), 'Arial Narrow', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .hero h1 {
@@ -309,7 +310,7 @@ a {
 .company-section h2 em {
   display: block;
   color: var(--signal);
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-barlow-display), 'Arial Narrow', Arial, sans-serif;
   font-weight: 500;
 }
 
@@ -333,7 +334,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.73rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -528,7 +529,7 @@ a {
 
 .deloitte-value strong {
   color: var(--signal);
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-barlow-display), 'Arial Narrow', Arial, sans-serif;
   font-size: clamp(5.4rem, 9vw, 10.5rem);
   font-weight: 500;
   line-height: 0.74;
@@ -654,7 +655,7 @@ a {
 
 .spec-list dt {
   color: var(--fog);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.67rem;
   line-height: 1.5;
   letter-spacing: 0.13em;
@@ -751,7 +752,7 @@ a {
 
 .platform-number {
   color: var(--signal);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -780,7 +781,7 @@ a {
 
 .platform-product-copy > small {
   color: var(--signal);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.76rem;
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -791,7 +792,7 @@ a {
   padding: 5px 7px;
   border: 1px solid rgba(47, 205, 255, 0.42);
   color: var(--telemetry);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.6rem;
   line-height: 1;
   letter-spacing: 0.1em;
@@ -829,7 +830,7 @@ a {
   gap: 24px;
   padding: 17px 20px;
   color: rgba(236, 235, 229, 0.56);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.65rem;
   line-height: 1.4;
   letter-spacing: 0.1em;
@@ -881,7 +882,7 @@ a {
   padding: 11px 9px;
   border: 1px solid rgba(236, 235, 229, 0.18);
   color: var(--fog);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.63rem;
   line-height: 1.35;
   letter-spacing: 0.08em;
@@ -919,7 +920,7 @@ a {
 
 .engine-core > span {
   color: var(--signal);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -951,7 +952,7 @@ a {
 
 .engine-metrics small {
   color: var(--fog);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.58rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -959,7 +960,7 @@ a {
 
 .engine-metrics b {
   color: var(--telemetry);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.86rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -976,7 +977,7 @@ a {
 .engine-outputs i,
 .engine-outputs small {
   color: var(--signal);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.58rem;
   font-style: normal;
   letter-spacing: 0.08em;
@@ -1527,7 +1528,7 @@ button:disabled {
 .market-stat strong {
   display: block;
   margin-top: 22px;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-barlow-display), 'Arial Narrow', Arial, sans-serif;
   font-weight: 500;
   font-size: clamp(4.5rem, 8vw, 8rem);
   line-height: 1;
@@ -1627,7 +1628,7 @@ button:disabled {
   color: var(--signal);
 }
 .selector-number {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-barlow), Arial, sans-serif;
   font-size: 0.8125rem;
   line-height: 1.75;
   color: var(--signal);
@@ -1808,7 +1809,7 @@ button:disabled {
 }
 .briefing-intro h2 em {
   color: var(--signal);
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-barlow-display), 'Arial Narrow', Arial, sans-serif;
 }
 .briefing-intro > p:not(.eyebrow),
 .briefing-intro li {
@@ -1843,6 +1844,18 @@ button:disabled {
 .briefing-form {
   display: grid;
   gap: 24px;
+}
+.briefing-form-fields {
+  display: grid;
+  gap: inherit;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.form-privacy a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .briefing-form label {
   display: block;

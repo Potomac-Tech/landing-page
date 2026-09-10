@@ -266,3 +266,46 @@
     transition: none;
   }
 }
+
+/* One industrial type family, with a narrower voice for the narrative. */
+.scroll-story .hero h1,
+.scroll-story .market-section h2,
+.scroll-story .pathfinder-section h2,
+.scroll-story .platform-section h2,
+.scroll-story .company-heading,
+.scroll-story .briefing-intro h2,
+.scroll-story .preview-story h3,
+.scroll-story .market-stat strong {
+  font-family: var(--font-barlow-display), 'Arial Narrow', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+}
+.scroll-story h1 em,
+.scroll-story h2 em {
+  font-weight: 600;
+}
+.scroll-story .company-heading {
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+.scroll-story .market-stat strong,
+.spec-list dd {
+  font-variant-numeric: tabular-nums;
+}
+.primary-nav,
+.nav-cta,
+.button-primary,
+.text-link,
+.chapter-label,
+.eyebrow,
+.spec-list dt,
+.selector-index {
+  font-weight: 600;
+  letter-spacing: 0.045em;
+}
+.chapter-label,
+.eyebrow,
+.spec-list dt {
+  font-size: 0.875rem;
+}

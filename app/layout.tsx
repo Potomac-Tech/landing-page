@@ -1,22 +1,21 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Geist, Geist_Mono } from 'next/font/google';
+import { Barlow, Barlow_Semi_Condensed } from 'next/font/google';
 import './globals.css';
 import './scroll-story.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const barlow = Barlow({
+  variable: '--font-barlow',
   subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const barlowDisplay = Barlow_Semi_Condensed({
+  variable: '--font-barlow-display',
   subsets: ['latin'],
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: '--font-cormorant',
-  subsets: ['latin'],
-  weight: ['500', '600'],
+  weight: ['600'],
+  style: ['normal', 'italic'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
   description:
     "Potomac collects proprietary data from the Moon's surface to better inform space industrialists financing, building, and securing the Moon.",
   icons: {
-    icon: '/favicon.png',
+    icon: { url: '/favicon.png?v=ebd1565aad1a', type: 'image/png' },
   },
   alternates: { canonical: '/' },
   openGraph: {
@@ -61,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased`}
+        className={`${barlow.variable} ${barlowDisplay.variable} antialiased`}
       >
         {children}
       </body>

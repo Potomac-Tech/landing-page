@@ -27,7 +27,42 @@ for (const path of [
   const result = await fetch(new URL(path, base));
   assert.equal(result.status, 200, path);
   assert.match(result.headers.get('x-robots-tag') || '', /noindex/, path);
-  assert.ok((await result.arrayBuffer()).byteLength > 0, path);
+  if (path === '/') {
+    const html = await result.text();
+    const form = html.match(
+      /<form\b[^>]*aria-label="Request a Potomac briefing"[^>]*>[\s\S]*?<\/form>/,
+    )?.[0];
+    assert.ok(form, 'The server must render the briefing form.');
+    const formTag = form.slice(0, form.indexOf('>') + 1);
+    assert.match(
+      formTag,
+      /method="post"/i,
+      'Native form submission must never use GET.',
+    );
+    assert.match(
+      formTag,
+      /action="\/api\/inquiries"/,
+      'The fallback target must be explicit.',
+    );
+    assert.match(
+      form,
+      /<fieldset\b[^>]*disabled(?:="")?[^>]*>/,
+      'Fields must start disabled before hydration.',
+    );
+    assert.match(
+      form,
+      /<button\b[^>]*type="submit"[^>]*disabled(?:="")?[^>]*>/,
+      'Submission must start disabled before hydration.',
+    );
+    assert.match(
+      form.slice(form.indexOf('</fieldset>') + 11),
+      /href="mailto:info@potomacdb.com"/,
+      'An email alternative must remain outside the disabled fieldset.',
+    );
+    console.log('PASS inquiry form privacy before JavaScript initialization');
+  } else {
+    assert.ok((await result.arrayBuffer()).byteLength > 0, path);
+  }
   console.log(`PASS ${path}`);
 }
 
