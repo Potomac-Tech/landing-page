@@ -37,6 +37,8 @@ const localBindingConfig = {
 
 export default defineConfig(async () => {
   const isWorkerPreview = process.env.POTOMAC_WORKER_PREVIEW === '1';
+  const isWorkerProduction = process.env.POTOMAC_WORKER_PRODUCTION === '1';
+  const isStandaloneWorker = isWorkerPreview || isWorkerProduction;
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
   process.env.WRANGLER_WRITE_LOGS ??= 'false';
@@ -53,11 +55,11 @@ export default defineConfig(async () => {
       : undefined,
     plugins: [
       vinext(),
-      ...(!isWorkerPreview ? [sites()] : []),
+      ...(!isStandaloneWorker ? [sites()] : []),
       cloudflare({
         viteEnvironment: { name: 'rsc', childEnvironments: ['ssr'] },
-        ...(isWorkerPreview
-          ? { configPath: './wrangler.preview.jsonc' }
+        ...(isStandaloneWorker
+          ? { configPath: isWorkerProduction ? './wrangler.production.jsonc' : './wrangler.preview.jsonc' }
           : { config: localBindingConfig }),
       }),
     ],

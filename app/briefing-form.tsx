@@ -102,8 +102,8 @@ export function BriefingForm() {
           <Check size={30} aria-hidden="true" />
           <h3>Request received.</h3>
           <p>
-            Your inquiry has been saved to Potomac’s private inbox. The team can
-            use the email you provided to follow up.
+            Your inquiry has been securely saved. For time-sensitive requests,
+            please email info@potomacdb.com and include your reference below.
           </p>
           <small>Reference: {receipt}</small>
           <button

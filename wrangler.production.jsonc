@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "potomac-landing-production",
+  "account_id": "2491244ab83d2260e4b5226bcb79967a",
+  "main": "./worker.production.ts",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "routes": [],
+  "assets": { "binding": "ASSETS", "run_worker_first": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "potomac-landing-production",
+      "database_id": "22770263-a2dd-404b-b4c3-aa6b36e86757",
+      "migrations_dir": "./drizzle"
+    }
+  ],
+  "observability": { "enabled": true }
+}

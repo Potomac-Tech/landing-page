@@ -9,6 +9,8 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "build:preview": "node scripts/build-worker-preview.mjs",
+    "build:production": "node scripts/build-worker-production.mjs",
+    "deploy:production": "npm run build:production && wrangler d1 migrations apply DB --remote --config wrangler.production.jsonc && wrangler deploy --config dist/server/wrangler.json",
     "deploy:preview": "npm run build:preview && wrangler d1 migrations apply DB --remote --config wrangler.preview.jsonc && wrangler deploy --config dist/server/wrangler.json",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",

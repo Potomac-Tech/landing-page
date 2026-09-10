@@ -19,9 +19,7 @@ const barlowDisplay = Barlow_Semi_Condensed({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    'https://potomac-lunar-markets.jacob-russell-matthe.chatgpt.site',
-  ),
+  metadataBase: new URL('https://potomacdb.com'),
   title: 'Potomac — Leaders of the Lunar Data Market',
   description:
     "Potomac collects proprietary data from the Moon's surface to better inform space industrialists financing, building, and securing the Moon.",

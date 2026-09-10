@@ -1,6 +1,5 @@
 /* oxlint-disable next/no-img-element -- vinext's next/image shim currently fails at runtime. */
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
 import { MobileNav } from './mobile-nav';
 import {
   IntelligencePlatform,
@@ -319,7 +318,6 @@ export default function Home() {
         <p>Leaders of the lunar data market.</p>
         <div>
           <a href="mailto:info@potomacdb.com">info@potomacdb.com</a>
-          <Link href="/inquiries">Team inbox</Link>
           <span>© 2026 Potomac</span>
         </div>
       </footer>
